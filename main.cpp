@@ -1,0 +1,26 @@
+#include <TXLib.h>
+#include <stdio.h>
+#include <math.h>
+#include <assert.h>
+#include "Tests.cpp"
+#include "Solvers.cpp"
+#include "InOutPut.cpp"
+
+
+int main() //главная функция
+    {
+    double x1 = 0.0;
+    double x2 = 0.0;
+    int count_x = 0;
+
+    NeedTest();//вызов функции, которая спрашивает пользователя, нужно ли проводить тесты
+    Coeffs group_abc = EnterCoeffs();//вызов функции, которая запрашивает у пользователя коэффициенты уравнения
+
+    count_x = CommonSolver(group_abc.a, group_abc.b, group_abc.c, &x1, &x2);  //вызов функции, которая возвращает кол-во корней уравнения
+    OutPutRoots(count_x, x1, x2); //вызов функции, которая печатает корни уравнения
+    return 0;
+    }
+
+
+
+
